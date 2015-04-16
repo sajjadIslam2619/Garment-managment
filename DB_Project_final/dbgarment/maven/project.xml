@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <pomVersion>3</pomVersion>
+  <id>dbgarment</id>
+  <name>dbgarment</name>
+  <groupId>dbgarment</groupId>
+  <package>com.*</package>
+  <currentVersion>0.1</currentVersion>
+  <organization>
+    <name>Foo Bar</name>
+    <url>http://foo.bar.com</url>
+    <logo></logo>
+  </organization>
+  <url></url>
+  <inceptionYear>2004</inceptionYear>
+  <issueTrackingUrl>http://bugzilla</issueTrackingUrl>
+  <siteAddress></siteAddress>
+  <siteDirectory>.</siteDirectory>
+  <distributionSite></distributionSite>
+  <distributionDirectory></distributionDirectory>
+  <developers>
+    <developer>
+      <name>Foo Bar</name>
+      <id>foo</id>
+      <email>foo@bar.com</email>
+      <organization>Foo Company</organization>
+    </developer>
+  </developers>
+  <description>
+  Description ...
+  </description>
+  <dependencies>
+     <dependency>
+       <groupId>commons-beanutils</groupId>
+       <artifactId>commons-beanutils</artifactId>
+       <type>jar</type>
+       <version>1.6.1</version>
+       <url>http://www.ibiblio.org/maven/commons-beanutils/jars/commons-beanutils-1.7.0.jar</url>
+     </dependency>
+   </dependencies>
+  <repository>
+    <connection></connection>
+    <developerConnection></developerConnection>
+    <url></url>
+  </repository>
+  <build>
+     <sourceDirectory>../src/java-web</sourceDirectory>
+  </build>
+   <reports>
+      <report>maven-checkstyle-plugin</report>
+      <report>maven-javadoc-plugin</report>
+      <report>maven-jxr-plugin</report>
+      <report>maven-license-plugin</report>
+      <report>maven-linkcheck-plugin</report>
+      <report>maven-pmd-plugin</report>
+      <report>maven-tasklist-plugin</report>
+   </reports>
+</project>

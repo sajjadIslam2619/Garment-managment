@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password"></property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/db_garment</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="show_sql">false</property>
+    <property name="generate_statistics">false</property>
+    <property name="c3p0.acquire_increment">1</property>
+    <property name="c3p0.acquire_increment">100</property>
+    <property name="c3p0.idle_test_period">100</property>
+    <property name="c3p0.max_size">10</property>
+    <property name="c3p0.max_statements">0</property>
+    <property name="c3p0.min_size">1</property>
+    <property name="c3p0.timeout">100</property>
+
+    <mapping class="dbGarmentHibernate.entity.OrderInfo" />
+    <mapping class="dbGarmentHibernate.entity.OrderStatus" />
+    <mapping class="dbGarmentHibernate.entity.OrderStatusType" />
+    <mapping class="dbGarmentHibernate.entity.OrderType" />
+    <mapping class="dbGarmentHibernate.entity.ProductInfo" />
+    <mapping class="dbGarmentHibernate.entity.ProductType" />
+    <mapping class="dbGarmentHibernate.entity.RawMatarial" />
+    <mapping class="dbGarmentHibernate.entity.RawMatarialType" />
+    <mapping class="dbGarmentHibernate.entity.UserInfo" />
+    <mapping class="dbGarmentHibernate.entity.UserType" />
+  </session-factory>
+</hibernate-configuration>

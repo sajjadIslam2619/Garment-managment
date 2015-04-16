@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC
+"-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+   <global>
+      <constant>
+         <constant-name>postcode</constant-name>
+         <constant-value>^[0-9]{4}[A-Za-z]{2}$</constant-value>
+      </constant>
+      <constant>
+         <constant-name>ten_digit_number</constant-name>
+         <constant-value>^[0-9]{1,10}$</constant-value>
+      </constant>
+      <constant>
+         <constant-name>date_format</constant-name>
+         <constant-value>dd/MM/yyyy</constant-value>
+      </constant>
+      <constant>
+         <constant-name>timestamp_format</constant-name>
+         <constant-value>dd/MM/yyyy HH:mm:ss</constant-value>
+      </constant>
+      <constant>
+          <constant-name>sex</constant-name>
+          <constant-value>M|F</constant-value>
+      </constant>
+   </global>
+
+   <formset>
+      <form name="orderInfoForm">
+         <field property="idOrderInfo" depends="integer, maxlength">
+            <arg0 key="orderInfoForm.idOrderInfo.displayName"/>
+            <arg0 name="required" key="orderInfoForm.idOrderInfo.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="idUser" depends="required, integer, maxlength">
+            <arg0 key="orderInfoForm.idUser.displayName"/>
+            <arg0 name="required" key="orderInfoForm.idUser.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="idOrderType" depends="required, integer, maxlength">
+            <arg0 key="orderInfoForm.idOrderType.displayName"/>
+            <arg0 name="required" key="orderInfoForm.idOrderType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="productAmount" depends="required, integer, maxlength">
+            <arg0 key="orderInfoForm.productAmount.displayName"/>
+            <arg0 name="required" key="orderInfoForm.productAmount.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="orderEstimatedDate" depends="required, date">
+            <arg0 key="orderInfoForm.orderEstimatedDate.displayName"/>
+            <arg0 name="required" key="orderInfoForm.orderEstimatedDate.displayName"/>
+            <var>
+   <var-name>datePattern</var-name>
+   <var-value>${date_format}</var-value>
+</var>
+         </field>
+
+         <field property="idProduct" depends="required, integer, maxlength">
+            <arg0 key="orderInfoForm.idProduct.displayName"/>
+            <arg0 name="required" key="orderInfoForm.idProduct.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="orderDetail" depends="maxlength">
+            <arg0 key="orderInfoForm.orderDetail.displayName"/>
+            <arg0 name="required" key="orderInfoForm.orderDetail.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>500</var-value>
+</var>
+         </field>
+
+         <field property="idOrderStatus" depends="required, integer, maxlength">
+            <arg0 key="orderInfoForm.idOrderStatus.displayName"/>
+            <arg0 name="required" key="orderInfoForm.idOrderStatus.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="orderStatusForm">
+         <field property="idOrderStatus" depends="integer, maxlength">
+            <arg0 key="orderStatusForm.idOrderStatus.displayName"/>
+            <arg0 name="required" key="orderStatusForm.idOrderStatus.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="idOrderStatusType" depends="required, integer, maxlength">
+            <arg0 key="orderStatusForm.idOrderStatusType.displayName"/>
+            <arg0 name="required" key="orderStatusForm.idOrderStatusType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="orderStatusTypeForm">
+         <field property="idOrderStatusType" depends="integer, maxlength">
+            <arg0 key="orderStatusTypeForm.idOrderStatusType.displayName"/>
+            <arg0 name="required" key="orderStatusTypeForm.idOrderStatusType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="orderStatusName" depends="required, maxlength">
+            <arg0 key="orderStatusTypeForm.orderStatusName.displayName"/>
+            <arg0 name="required" key="orderStatusTypeForm.orderStatusName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="orderTypeForm">
+         <field property="idOrderType" depends="integer, maxlength">
+            <arg0 key="orderTypeForm.idOrderType.displayName"/>
+            <arg0 name="required" key="orderTypeForm.idOrderType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="orderName" depends="required, maxlength">
+            <arg0 key="orderTypeForm.orderName.displayName"/>
+            <arg0 name="required" key="orderTypeForm.orderName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="productInfoForm">
+         <field property="idProduct" depends="integer, maxlength">
+            <arg0 key="productInfoForm.idProduct.displayName"/>
+            <arg0 name="required" key="productInfoForm.idProduct.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="productName" depends="required, maxlength">
+            <arg0 key="productInfoForm.productName.displayName"/>
+            <arg0 name="required" key="productInfoForm.productName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+         <field property="idProductType" depends="required, integer, maxlength">
+            <arg0 key="productInfoForm.idProductType.displayName"/>
+            <arg0 name="required" key="productInfoForm.idProductType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="productPrice" depends="required">
+            <arg0 key="productInfoForm.productPrice.displayName"/>
+            <arg0 name="required" key="productInfoForm.productPrice.displayName"/>
+            
+         </field>
+
+         <field property="productImage" depends="maxlength">
+            <arg0 key="productInfoForm.productImage.displayName"/>
+            <arg0 name="required" key="productInfoForm.productImage.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>200</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="productTypeForm">
+         <field property="idProductType" depends="integer, maxlength">
+            <arg0 key="productTypeForm.idProductType.displayName"/>
+            <arg0 name="required" key="productTypeForm.idProductType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="productTypeName" depends="required, maxlength">
+            <arg0 key="productTypeForm.productTypeName.displayName"/>
+            <arg0 name="required" key="productTypeForm.productTypeName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="rawMatarialForm">
+         <field property="idRawMatarial" depends="integer, maxlength">
+            <arg0 key="rawMatarialForm.idRawMatarial.displayName"/>
+            <arg0 name="required" key="rawMatarialForm.idRawMatarial.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="idRawMaterialType" depends="required, integer, maxlength">
+            <arg0 key="rawMatarialForm.idRawMaterialType.displayName"/>
+            <arg0 name="required" key="rawMatarialForm.idRawMaterialType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="rawMaterialAmount" depends="required, integer, maxlength">
+            <arg0 key="rawMatarialForm.rawMaterialAmount.displayName"/>
+            <arg0 name="required" key="rawMatarialForm.rawMaterialAmount.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="perUnitPrice" depends="required">
+            <arg0 key="rawMatarialForm.perUnitPrice.displayName"/>
+            <arg0 name="required" key="rawMatarialForm.perUnitPrice.displayName"/>
+            
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="rawMatarialTypeForm">
+         <field property="idRawMaterialType" depends="integer, maxlength">
+            <arg0 key="rawMatarialTypeForm.idRawMaterialType.displayName"/>
+            <arg0 name="required" key="rawMatarialTypeForm.idRawMaterialType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="rawMaterialTypeName" depends="required, maxlength">
+            <arg0 key="rawMatarialTypeForm.rawMaterialTypeName.displayName"/>
+            <arg0 name="required" key="rawMatarialTypeForm.rawMaterialTypeName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="userInfoForm">
+         <field property="idUser" depends="integer, maxlength">
+            <arg0 key="userInfoForm.idUser.displayName"/>
+            <arg0 name="required" key="userInfoForm.idUser.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="userName" depends="required, maxlength">
+            <arg0 key="userInfoForm.userName.displayName"/>
+            <arg0 name="required" key="userInfoForm.userName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+         <field property="fullName" depends="required, maxlength">
+            <arg0 key="userInfoForm.fullName.displayName"/>
+            <arg0 name="required" key="userInfoForm.fullName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+         <field property="userEmail" depends="required, maxlength">
+            <arg0 key="userInfoForm.userEmail.displayName"/>
+            <arg0 name="required" key="userInfoForm.userEmail.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+         <field property="idUserType" depends="required, integer, maxlength">
+            <arg0 key="userInfoForm.idUserType.displayName"/>
+            <arg0 name="required" key="userInfoForm.idUserType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="password" depends="required, maxlength">
+            <arg0 key="userInfoForm.password.displayName"/>
+            <arg0 name="required" key="userInfoForm.password.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+         <field property="companyName" depends="maxlength">
+            <arg0 key="userInfoForm.companyName.displayName"/>
+            <arg0 name="required" key="userInfoForm.companyName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+   <formset>
+      <form name="userTypeForm">
+         <field property="idUserType" depends="integer, maxlength">
+            <arg0 key="userTypeForm.idUserType.displayName"/>
+            <arg0 name="required" key="userTypeForm.idUserType.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>11</var-value>
+</var>
+         </field>
+
+         <field property="userTypeName" depends="required, maxlength">
+            <arg0 key="userTypeForm.userTypeName.displayName"/>
+            <arg0 name="required" key="userTypeForm.userTypeName.displayName"/>
+            <arg1 key="${var:maxlength}" name="maxlength" resource="false"/>
+<var>
+   <var-name>maxlength</var-name>
+   <var-value>55</var-value>
+</var>
+         </field>
+
+      </form>
+   </formset>
+</form-validation>

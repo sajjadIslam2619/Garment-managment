@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="${project}">
+   <title>Project Title</title>
+   <body>
+
+    	<links>
+    		<item name="Finalist" href="http://www.finalist.com"/>
+    	</links>
+
+      <menu name="Overview">
+         <item name="Item name" href="Item ref" />
+      </menu>
+   </body>
+</project>

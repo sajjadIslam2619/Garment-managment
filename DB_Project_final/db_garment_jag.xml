@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<skelet>
+<config>
+<author>DB team</author>
+<version>1.0</version>
+<company>Finalist IT Group</company>
+<templates>
+<template-root>../templates/java5_2_tier</template-root>
+<config-param name="serviceTier" value="ServiceLocator"/>
+<config-param name="useWebService" value="false"/>
+<config-param name="useRelations" value="false"/>
+<config-param name="businessTier" value="Hibernate 3"/>
+<config-param name="useJasper" value="false"/>
+<config-param name="webTier" value="Struts 1.2"/>
+<config-param name="useRss" value="false"/>
+<config-param name="useSecurity" value="false"/>
+<config-param name="appserver" value="Tomcat 5"/>
+</templates>
+</config>
+<module name="app">
+<module-data name="name">dbgarment</module-data>
+<module-data name="version">1.0</module-data>
+<module-data name="description"/>
+<module-data name="root-package">dbGarmentHibernate</module-data>
+<module-data name="log-framework">jdklogging</module-data>
+<module-data name="date-format">dd/MM/yyyy</module-data>
+<module-data name="timestamp-format">dd/MM/yyyy HH:mm:ss</module-data>
+</module>
+<module name="paths">
+<module-data name="service_output">./src/java-service/</module-data>
+<module-data name="hibernate_output">./src/java-hibernate/</module-data>
+<module-data name="ejb_output">./src/java-ejb/</module-data>
+<module-data name="web_output">./src/java-web/</module-data>
+<module-data name="test_output">./src/java-test/</module-data>
+<module-data name="jsp_output">./src/web/</module-data>
+<module-data name="config_output">./conf/</module-data>
+<module-data name="mock_output"/>
+<module-data name="swing_output">./src/java-swing/</module-data>
+</module>
+<module name="datasource">
+<module-data name="jndi-name">jdbc/DbGarment</module-data>
+<module-data name="mapping">MySQL</module-data>
+<module-data name="jdbc-url">jdbc:mysql://localhost:3306/db_garment</module-data>
+<module-data name="user-name">root</module-data>
+<module-data name="password"/>
+</module>
+<module name="entity">
+<module-data name="name">OrderInfo</module-data>
+<module-data name="display-name">OrderInfo</module-data>
+<module-data name="description">OrderInfo</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">order_info</module-data>
+<module-data name="primary-key">idOrderInfo</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>OrderInfo</ref-name>
+<module-data name="field">
+<module-data name="name">idOrderInfo</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_info</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idUser</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_user</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idOrderType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">productAmount</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">product_amount</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">orderEstimatedDate</module-data>
+<module-data name="type">java.sql.Date</module-data>
+<module-data name="column-name">order_estimated_date</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">DATE</module-data>
+<module-data name="jdbc-type">DATE</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, date</module-data>
+<module-data name="validation-xml">&lt;var&gt;
+   &lt;var-name&gt;datePattern&lt;/var-name&gt;
+   &lt;var-value&gt;${date_format}&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idProduct</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_product</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">orderDetail</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">order_detail</module-data>
+<module-data name="required">false</module-data>
+<module-data name="sql-type">VARCHAR(500)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;500&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idOrderStatus</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_status</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">OrderStatus</module-data>
+<module-data name="display-name">OrderStatus</module-data>
+<module-data name="description">OrderStatus</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">order_status</module-data>
+<module-data name="primary-key">idOrderStatus</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>OrderStatus</ref-name>
+<module-data name="field">
+<module-data name="name">idOrderStatus</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_status</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idOrderStatusType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_status_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">OrderStatusType</module-data>
+<module-data name="display-name">OrderStatusType</module-data>
+<module-data name="description">OrderStatusType</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">order_status_type</module-data>
+<module-data name="primary-key">idOrderStatusType</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>OrderStatusType</ref-name>
+<module-data name="field">
+<module-data name="name">idOrderStatusType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_status_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">orderStatusName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">order_status_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">OrderType</module-data>
+<module-data name="display-name">OrderType</module-data>
+<module-data name="description">OrderType</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">order_type</module-data>
+<module-data name="primary-key">idOrderType</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>OrderType</ref-name>
+<module-data name="field">
+<module-data name="name">idOrderType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_order_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">orderName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">order_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">ProductInfo</module-data>
+<module-data name="display-name">ProductInfo</module-data>
+<module-data name="description">ProductInfo</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">product_info</module-data>
+<module-data name="primary-key">idProduct</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>ProductInfo</ref-name>
+<module-data name="field">
+<module-data name="name">idProduct</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_product</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">productName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">product_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idProductType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_product_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">productPrice</module-data>
+<module-data name="type">java.lang.Double</module-data>
+<module-data name="column-name">product_price</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">DOUBLE(22)</module-data>
+<module-data name="jdbc-type">DOUBLE</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required</module-data>
+<module-data name="validation-xml"/>
+</module-data>
+<module-data name="field">
+<module-data name="name">productImage</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">product_image</module-data>
+<module-data name="required">false</module-data>
+<module-data name="sql-type">VARCHAR(200)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;200&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">ProductType</module-data>
+<module-data name="display-name">ProductType</module-data>
+<module-data name="description">ProductType</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">product_type</module-data>
+<module-data name="primary-key">idProductType</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>ProductType</ref-name>
+<module-data name="field">
+<module-data name="name">idProductType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_product_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">productTypeName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">product_type_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">RawMatarial</module-data>
+<module-data name="display-name">RawMatarial</module-data>
+<module-data name="description">RawMatarial</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">raw_matarial</module-data>
+<module-data name="primary-key">idRawMatarial</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>RawMatarial</ref-name>
+<module-data name="field">
+<module-data name="name">idRawMatarial</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_raw_matarial</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idRawMaterialType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_raw_material_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">rawMaterialAmount</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">raw_material_amount</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">perUnitPrice</module-data>
+<module-data name="type">java.lang.Double</module-data>
+<module-data name="column-name">per_unit_price</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">DOUBLE(22)</module-data>
+<module-data name="jdbc-type">DOUBLE</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required</module-data>
+<module-data name="validation-xml"/>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">RawMatarialType</module-data>
+<module-data name="display-name">RawMatarialType</module-data>
+<module-data name="description">RawMatarialType</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">raw_matarial_type</module-data>
+<module-data name="primary-key">idRawMaterialType</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>RawMatarialType</ref-name>
+<module-data name="field">
+<module-data name="name">idRawMaterialType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_raw_material_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">rawMaterialTypeName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">raw_material_type_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">UserInfo</module-data>
+<module-data name="display-name">UserInfo</module-data>
+<module-data name="description">UserInfo</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">user_info</module-data>
+<module-data name="primary-key">idUser</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>UserInfo</ref-name>
+<module-data name="field">
+<module-data name="name">idUser</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_user</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">userName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">user_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">fullName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">full_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">userEmail</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">user_email</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">idUserType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_user_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">password</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">password</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">companyName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">company_name</module-data>
+<module-data name="required">false</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="entity">
+<module-data name="name">UserType</module-data>
+<module-data name="display-name">UserType</module-data>
+<module-data name="description">UserType</module-data>
+<module-data name="root-package">dbGarmentHibernate.entity</module-data>
+<module-data name="table-name">user_type</module-data>
+<module-data name="primary-key">idUserType</module-data>
+<module-data name="primary-key-type">java.lang.Integer</module-data>
+<module-data name="is-composite">false</module-data>
+<module-data name="is-association">false</module-data>
+<ref-name>UserType</ref-name>
+<module-data name="field">
+<module-data name="name">idUserType</module-data>
+<module-data name="type">java.lang.Integer</module-data>
+<module-data name="column-name">id_user_type</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">INT(11)</module-data>
+<module-data name="jdbc-type">INTEGER</module-data>
+<module-data name="primary-key">true</module-data>
+<module-data name="auto-primary-key">true</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">integer, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;11&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+<module-data name="field">
+<module-data name="name">userTypeName</module-data>
+<module-data name="type">java.lang.String</module-data>
+<module-data name="column-name">user_type_name</module-data>
+<module-data name="required">true</module-data>
+<module-data name="sql-type">VARCHAR(55)</module-data>
+<module-data name="jdbc-type">VARCHAR</module-data>
+<module-data name="primary-key">false</module-data>
+<module-data name="auto-primary-key">false</module-data>
+<module-data name="foreign-key">false</module-data>
+<module-data name="validation-depends">required, maxlength</module-data>
+<module-data name="validation-xml">&lt;arg1 key="${var:maxlength}" name="maxlength" resource="false"/&gt;
+&lt;var&gt;
+   &lt;var-name&gt;maxlength&lt;/var-name&gt;
+   &lt;var-value&gt;55&lt;/var-value&gt;
+&lt;/var&gt;</module-data>
+</module-data>
+</module>
+<module name="session">
+<module-data name="name">OrderInfoService</module-data>
+<module-data name="description">OrderInfoService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>OrderInfoService</ref-name>
+<ref>OrderInfo</ref>
+</module>
+<module name="session">
+<module-data name="name">OrderStatusService</module-data>
+<module-data name="description">OrderStatusService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>OrderStatusService</ref-name>
+<ref>OrderStatus</ref>
+</module>
+<module name="session">
+<module-data name="name">OrderStatusTypeService</module-data>
+<module-data name="description">OrderStatusTypeService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>OrderStatusTypeService</ref-name>
+<ref>OrderStatusType</ref>
+</module>
+<module name="session">
+<module-data name="name">OrderTypeService</module-data>
+<module-data name="description">OrderTypeService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>OrderTypeService</ref-name>
+<ref>OrderType</ref>
+</module>
+<module name="session">
+<module-data name="name">ProductInfoService</module-data>
+<module-data name="description">ProductInfoService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>ProductInfoService</ref-name>
+<ref>ProductInfo</ref>
+</module>
+<module name="session">
+<module-data name="name">ProductTypeService</module-data>
+<module-data name="description">ProductTypeService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>ProductTypeService</ref-name>
+<ref>ProductType</ref>
+</module>
+<module name="session">
+<module-data name="name">RawMatarialService</module-data>
+<module-data name="description">RawMatarialService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>RawMatarialService</ref-name>
+<ref>RawMatarial</ref>
+</module>
+<module name="session">
+<module-data name="name">RawMatarialTypeService</module-data>
+<module-data name="description">RawMatarialTypeService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>RawMatarialTypeService</ref-name>
+<ref>RawMatarialType</ref>
+</module>
+<module name="session">
+<module-data name="name">UserInfoService</module-data>
+<module-data name="description">UserInfoService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>UserInfoService</ref-name>
+<ref>UserInfo</ref>
+</module>
+<module name="session">
+<module-data name="name">UserTypeService</module-data>
+<module-data name="description">UserTypeService</module-data>
+<module-data name="root-package">dbGarmentHibernate.session</module-data>
+<ref-name>UserTypeService</ref-name>
+<ref>UserType</ref>
+</module>
+</skelet>
